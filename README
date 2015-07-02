@@ -1,0 +1,10 @@
+netrc command line client
+
+Install:
+go get github.com/bhenderson/netrc
+
+Usage:
+netrc -h
+
+template uses http://golang.org/pkg/text/template/
+object available is: http://godoc.org/code.google.com/p/go-netrc/netrc#Machine
