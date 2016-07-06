@@ -14,6 +14,7 @@ import (
 var (
 	file     string
 	tempFlag = flag.String("t", "{{.Login}}:{{.Password}}", "output template")
+	pass     = flag.Bool("p", false, "output password")
 )
 
 func init() {
@@ -23,15 +24,20 @@ func init() {
 func main() {
 	flag.Parse()
 
-	if t := flag.Arg(1); t != "" {
-		*tempFlag = t
-	}
-	temp, err := template.New("temp").Parse(*tempFlag)
+	m, err := netrc.FindMachine(file, flag.Arg(0))
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	m, err := netrc.FindMachine(file, flag.Arg(0))
+	if *pass {
+		fmt.Println(m.Password)
+		return
+	}
+
+	if t := flag.Arg(1); t != "" {
+		*tempFlag = t
+	}
+	temp, err := template.New("temp").Parse(*tempFlag)
 	if err != nil {
 		log.Fatal(err)
 	}
