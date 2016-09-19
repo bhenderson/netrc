@@ -7,4 +7,4 @@ Usage:
 netrc -h
 
 template uses http://golang.org/pkg/text/template/
-object available is: http://godoc.org/code.google.com/p/go-netrc/netrc#Machine
+object available is: https://godoc.org/github.com/fhs/go-netrc/netrc#Machine
