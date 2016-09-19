@@ -8,7 +8,7 @@ import (
 	"path"
 	"text/template"
 
-	"code.google.com/p/go-netrc/netrc"
+	"github.com/fhs/go-netrc/netrc"
 )
 
 var (
